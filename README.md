@@ -1,3 +1,4 @@
+# Embedded Linux
 ## Project Lifecycle: 
 - Elements of embedded system
 - System architecture and design choices (storage of programs and data, divide work between kernel device driver and applications, how to initialize the system)
