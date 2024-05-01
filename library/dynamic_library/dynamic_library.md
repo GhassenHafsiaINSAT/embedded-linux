@@ -1,8 +1,8 @@
 # Dynamimc Library 
 
-- **Also called shared library** 
-- **They are linked at run time** 
-- **Every program can access this library at run time and can avoid creation of multiple copies for every program** 
+- Also called shared library 
+- They are linked at run time.  
+- Every program can access this library at run time and can avoid creation of multiple copies for every program.   
 
 ## How to create a dynamic library 
 - `gcc -c lib_add.c lib_sub.c -fpic` : compile `lib_add.c` and `lib_sub.c` into position-independant object files. 
