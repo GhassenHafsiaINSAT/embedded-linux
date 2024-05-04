@@ -1,0 +1,18 @@
+# 1) Make sure to unblock WIFI
+rfkill unblock wifi
+# 2) Bring up the WiFi interface
+ip link set wlan0 up
+# 3) Scan for all SSIDs
+iw wlan0 scan | grep SSID
+# 4) Setup the SSID, this will block until you enter the password of the
+access point
+wpa_passphrase YOUR_SSID_HERE > /etc/wpa_supplicant.conf
+# 5) Connect
+wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+# 6)give it some time
+sleep 5
+# 6) Check connection
+iw wlan0 link
+# 7)give static IP address
+ip addr add 172.20.10.5/255.255.255.0 dev wlan0
+
