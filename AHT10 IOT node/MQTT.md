@@ -17,16 +17,15 @@
 # Mosquitto 
 - Mosquitto is an open-source mqtt broker
 ## mosquitto_pub
-- `mosquitto_pub [-h host] [-p port] [-u username] [-P password] [-t topic] [-m message] [-q qos]`
+`mosquitto_pub [-h host] [-p port] [-u username] [-P password] [-t topic] [-m message] [-q qos]`  
 Options:
-
-    `-h host`: Specify the hostname or IP address of the MQTT broker (default is localhost).
-    `-p port`: Specify the port number of the MQTT broker (default is 1883).
-    `-u username`: Specify the username for authenticating with the MQTT broker.
-    `-P password`: Specify the password for authenticating with the MQTT broker.
-    `-t topic`: Specify the MQTT topic to which the message will be published.
-    `-m message`: Specify the message payload to be published.
-    `-q qos`: Specify the Quality of Service level for message delivery (0, 1, or 2).
+- `-h host`: Specify the hostname or IP address of the MQTT broker (default is localhost).  
+- `-p port`: Specify the port number of the MQTT broker (default is 1883).
+- `-u username`: Specify the username for authenticating with the MQTT broker.
+- `-P password`: Specify the password for authenticating with the MQTT broker.
+- `-t topic`: Specify the MQTT topic to which the message will be published.
+- `-m message`: Specify the message payload to be published.
+- `-q qos`: Specify the Quality of Service level for message delivery (0, 1, or 2).
 
 ## mosquitto_sub
-- `mosquitto_sub [-h host] [-p port] [-u username] [-P password] [-t topic] [-q qos]`
+`mosquitto_sub [-h host] [-p port] [-u username] [-P password] [-t topic] [-q qos]`
