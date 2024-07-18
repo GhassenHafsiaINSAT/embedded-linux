@@ -42,4 +42,4 @@ x86_64-linux-gnu
 - **musl libc**
 
 
-### Crosstool-NG is a tool used for building custom cross-compiling toolchains. 
+### Building a toolcha using Crosstool-NG 
