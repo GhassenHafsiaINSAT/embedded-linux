@@ -32,7 +32,7 @@ x86_64-linux-gnu
 ## Chosing the C library 
 
 - The programming interface to the Unix operating system is defined in the C language.
-- ![image](https://github.com/user-attachments/assets/d4a73ae7-d6ec-46c9-878e-6e4f244b1bc7)
+![image](https://github.com/user-attachments/assets/d4a73ae7-d6ec-46c9-878e-6e4f244b1bc7)
 
 
 ## C libraries: 
