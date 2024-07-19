@@ -91,3 +91,15 @@ $ ./ct-ng arm-cortex_a8-linux-gnueabi
 ```
 $ ./ct-ng manuconfig
 ```
+- Its recommended to change these configurations :
+          - In **Path and misc** options, desable **Render the toolchain read-only**, it allows modifications to files in the toolchain directory.
+          - In **target options | floating point**,  select **hardware (FPU)**, it specifies that the toolchain should use hardware floating point operations instead of software-based floating point operations in order to improve performance.
+          - In **C-library | extra config**, add **--enable-obsolete-rpc**, it ensures that the toolchain's C library can handle legacy RPC calls
+   
+- The configuration data is saved into a file named .config
+
+- ABI stands for **Application binary interface**, defines how components of binary code, such as libraries, programs interact at the binary level.
+
+- ARM architecture uses different ABIs for floatinh point operations :
+          - One uses integer registers for floating point parameters
+          - Another uses VFP  (vector floating point) 
