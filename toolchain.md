@@ -64,5 +64,30 @@ tar [options] [archive-file] [file or directory to be archived]
 - Note that tar is for archiving files (combines multiple files and directories into one archive file) and not compressing files. Instead, you can use a combination of tar and gzip (compression tool) or zip (combined archiving and compression tool).
 
 ## Selecting the toolchain 
-- Crosstool-NG can build many different combinations of toolchains.
-- 
+
+- Crosstool-NG can build many different combinations of toolchains, it comes with a set of samples that cover many of the common use-cases.
+
+- Use `./ct-ng list-samples`to generate this list.
+
+- You can see the default configuration of a specific architecture by typing :
+
+```sh
+$ ./ct-ng show-arm-cortex_a8-linux-gnueabi
+[L...]   arm-cortex_a8-linux-gnueabi
+    Languages       : C,C++
+    OS              : linux-6.4
+    Binutils        : binutils-2.40
+    Compiler        : gcc-13.2.0
+    C library       : glibc-2.38
+    Debug tools     : duma-2_5_21 gdb-13.2 ltrace-0.7.3 strace-6.4
+    Companion libs  : expat-2.5.0 gettext-0.21 gmp-6.2.1 isl-0.26 libelf-0.8.13 libiconv-1.16 mpc-1.2.1 mpfr-4.2.1 ncurses-6.4 zlib-1.2.13 zstd-1.5.5
+    Companion tools :
+``` 
+- To select this as target configuration you can type
+```
+$ ./ct-ng arm-cortex_a8-linux-gnueabi
+```
+- At this point, you can review the configuration and make changes using :
+```
+$ ./ct-ng manuconfig
+```
