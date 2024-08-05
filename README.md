@@ -7,7 +7,7 @@
 
 ## The four elements of embedded linux:
 - toolchain (compiler and other tools to create code for your target device) 
-- boatloader (initialize the boar, load and boot the linux kernel)
+- boatloader (initialize the board, load and boot the linux kernel)
 - kernel (managing system ressources and interfacing with hardware) 
 - Root filesystem (libraries and programs running on the kernel) 
 
@@ -18,3 +18,16 @@
 - debug port.   
 - mean of loading software from scratch, SD cards, serialinterface (usb).   
 
+GNU : application (commandes ...) /Linux:noyau
+1. construire un compilateur:
+  - pour des raisons de performance, on a besoin de compiler sur notre pc et pas sur la carte
+  - un compilateur native, gere des executable pour la meme machine
+  - un compilateur croisé, pour un type d'architecture autre que notre machine
+  - on doit alors construire ce compilateur
+2. construire un bootloader (u-boot)
+3. construire un kernel linux et le compiler avec compilateur deja construit
+4. userspace/rootfs/minimal filesystem (busybox) 
+5. constatation, refaire ces etapes est penible et prends du temps,
+des outils pour automatiser ces 4 etapes, avec YOCTO
+
+ embedded linux is the usage of the linux kernel and open source components in embedded systems
