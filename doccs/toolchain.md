@@ -1,4 +1,4 @@
-# Toolchain?
+# Toolchain
 - A toolchain is a set of tools (compiler, linker and run-time libraries) that compiles source code into an executables that can run on your target device
 
 - A toolchain should support the language that you require and have a solid implementation of POSIX.  
@@ -9,14 +9,59 @@
         - C library : the priciple interface to the operating system kernel from applications.
   
 
-### Types of toolchain 
+## Types of toolchain 
 
-- **Native :** This toolchain runs on the same type of system.  
+### Native toolchain
+- This toolchain runs on your workstation and generates code for you workstation (usually x86).
+- You can install the natice toolchain on your ubuntu machine using this command:
+```sh
+sudo apt install build-essential
+``` 
 
-- **Cross :** This toolchain runs on different type of system, development on pc and testing on an embedded target. 
+### Cross-compiling toolchain
+- This toolchain runs on you workstation but generates code for your target.
+- **Host-triplet**
+  - The **build** machine, where the toolchain is built
+  - The **host** machine, where the toolchain will be executed
+  - The **target** machine, where the binaries created by the toolchain are excuted 
 
+## Components of toolchain 
+### Binutils 
+- A set of tool to generate and manipulate binaries for a given cpu architectures
+  - **as**, the assembler, generates binary code from assembler source code.
+  - **ld**, the linker
+  - **ar**,**ranlib**, to generate **.a** archieves, used for libraries...
+
+## Kernel headers 
+- The C library and compiled programs need to interact with the kernel
+
+### C/C++ compiler 
+- **GCC**: GNU Compiler Collection, the famous free software compiler
+- alternative: Clang, LLVM compiler
+
+### C library
+- Interface between the  applications and the kernel
+- Provides the well-known standard C API to ease application development
+  
+![image](https://github.com/user-attachments/assets/d4a73ae7-d6ec-46c9-878e-6e4f244b1bc7)
+
+
+- C libraries: 
+  - **glibc**: The standard GNU C library 
+  - **eglibc**: This is the embedded GLIBC 
+  - **µClibc**
+  - **musl libc**
+ 
+## toolchain operations 
+### ABI
+- When building a toolchain, the ABI (Application binary interface) used to generate binaries needs to be defined.
+- ABI, defines the calling conventions (how the arguments are passed, how return value is passed, how system calls are made) and the organization of structures (aligment).
+- On ARM, two main ABIs, EABI and OABI, when building a toolchain you need to choose one of them, nowadays, everybody uses EABI.
+
+### Floating Point Support
+- Some processors have a floating point, unit, some others do not
+  
 ## CPU architectures
-
 - The toolchain should be built according to the capabilities of the target CPU, which includes:   
         - **CPU architectiure**   
         - **Big or little-endian operation :** Some machines can operate in both modes, but the machine code is different dfor each.   
@@ -29,18 +74,6 @@ $ gcc -dumpmachine
 
 x86_64-linux-gnu
 ```
-## Chosing the C library 
-- The programming interface to the Unix operating system is defined in the C language.
-  
-![image](https://github.com/user-attachments/assets/d4a73ae7-d6ec-46c9-878e-6e4f244b1bc7)
-
-
-## C libraries: 
-- **glibc**: The standard GNU C library 
-- **eglibc**: This is the embedded GLIBC 
-- **µClibc**
-- **musl libc**
-
 
 ## Building a toolchain using Crosstool-NG 
 
@@ -63,7 +96,7 @@ tar [options] [archive-file] [file or directory to be archived]
 
 - Note that tar is for archiving files (combines multiple files and directories into one archive file) and not compressing files. Instead, you can use a combination of tar and gzip (compression tool) or zip (combined archiving and compression tool).
 
-## Selecting the toolchain 
+### Selecting the toolchain 
 
 - Crosstool-NG can build many different combinations of toolchains, it comes with a set of samples that cover many of the common use-cases.
 
